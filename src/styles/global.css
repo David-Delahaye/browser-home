@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500;700&display=swap");
+html {
+  overflow-x: hidden;
+  font-family: "Roboto Slab", serif;
+}
+
+button {
+  font-family: "Roboto Slab", serif;
+  font-weight: 800;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.site-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  overflow-x: hidden;
+}
+
+.site-wrapper .site-image {
+  background-image: url("https://images.unsplash.com/photo-1542202229-7d93c33f5d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=100");
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  -webkit-filter: contrast(0.7);
+          filter: contrast(0.7);
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  display: block;
+  width: 100%;
+  -webkit-backdrop-filter: blur(9px);
+          backdrop-filter: blur(9px);
+  background-color: rgba(252, 252, 252, 0.863);
+  height: 0px;
+  -webkit-transition: height 0.4s;
+  transition: height 0.4s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  -webkit-box-shadow: inset 0px 10px 40px rgba(0, 0, 0, 0.486);
+          box-shadow: inset 0px 10px 40px rgba(0, 0, 0, 0.486);
+}
+
+.overlay.active {
+  height: 80vh;
+}
+
+.overlay .stats-container {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.overlay .stats-container .stats-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 100%;
+}
+
+.overlay .stats-container .stats-bar .stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.overlay .stats-container .stats-bar .stat .stat-head {
+  color: black;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.overlay .stats-container .stats-bar .stat .stat-body {
+  color: black;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.main-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-top: auto;
+  padding: 1rem;
+}
+
+.main-display div {
+  margin-bottom: 1rem;
+}
+
+.main-display .quote {
+  font-size: 0.85rem;
+  margin-bottom: auto;
+  color: white;
+  width: 50%;
+  min-width: 250px;
+  font-weight: 300;
+}
+
+.main-display .greeting {
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.main-display .time {
+  color: white;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.main-display .timezone {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin-left: -1rem;
+}
+
+.main-display .location {
+  color: white;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.main-display .overlay-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  width: 8rem;
+  letter-spacing: 3px;
+  font-weight: 800 !important;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.main-display .overlay-button .toggle {
+  background-color: black;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+  .stats-container {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+  }
+  .stats-container .stats-bar {
+    width: 50%;
+    padding-left: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute !important;
+        justify-content: space-around !important;
+  }
+  .stats-container .stats-bar:first-of-type {
+    border-right: 1px solid rgba(0, 0, 0, 0.192);
+  }
+  .stats-container .stats-bar .stat {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: start !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: start !important;
+  }
+  .stats-container,
+  .main-display {
+    padding: 2rem;
+  }
+  .main-display .overlay-button {
+    position: absolute;
+    bottom: 0px;
+    right: 5rem;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    font-size: 20px;
+  }
+  .time {
+    font-size: 6rem !important;
+  }
+  .stats-container,
+  .main-display {
+    padding: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 21px;
+  }
+  .time {
+    font-size: 7rem !important;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  html {
+    font-size: 22px;
+  }
+  .time {
+    font-size: 8rem !important;
+  }
+}
+/*# sourceMappingURL=global.css.map */
