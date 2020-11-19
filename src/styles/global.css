@@ -39,10 +39,13 @@ body {
 }
 
 .site-wrapper .site-image {
-  background-image: url("https://images.unsplash.com/photo-1542202229-7d93c33f5d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=100");
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
   position: absolute;
-  background-position: center;
-  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   -webkit-filter: contrast(0.7);
           filter: contrast(0.7);
   -webkit-filter: brightness(0.5);
@@ -57,7 +60,7 @@ body {
   width: 100%;
   -webkit-backdrop-filter: blur(9px);
           backdrop-filter: blur(9px);
-  background-color: rgba(252, 252, 252, 0.863);
+  background-color: rgba(252, 252, 252, 0.763);
   height: 0px;
   -webkit-transition: height 0.4s;
   transition: height 0.4s;
@@ -73,16 +76,22 @@ body {
   overflow: hidden;
   -webkit-box-shadow: inset 0px 10px 40px rgba(0, 0, 0, 0.486);
           box-shadow: inset 0px 10px 40px rgba(0, 0, 0, 0.486);
+  color: black;
 }
 
 .overlay.active {
   height: 80vh;
 }
 
+.overlay.dark {
+  background-color: rgba(0, 0, 0, 0.663);
+  color: white;
+}
+
 .overlay .stats-container {
   width: 100%;
   height: 100%;
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -120,7 +129,6 @@ body {
 }
 
 .overlay .stats-container .stats-bar .stat .stat-head {
-  color: black;
   font-size: 0.7rem;
   letter-spacing: 3px;
   font-weight: 500;
@@ -128,7 +136,6 @@ body {
 }
 
 .overlay .stats-container .stats-bar .stat .stat-body {
-  color: black;
   font-weight: 800;
   font-size: 1.25rem;
 }
@@ -145,11 +152,7 @@ body {
   width: 100%;
   height: 100%;
   margin-top: auto;
-  padding: 1rem;
-}
-
-.main-display div {
-  margin-bottom: 1rem;
+  padding: 1rem 2rem;
 }
 
 .main-display .quote {
@@ -179,7 +182,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 3px;
-  margin-left: -1rem;
+  text-transform: uppercase;
 }
 
 .main-display .location {
@@ -208,6 +211,10 @@ body {
   border-radius: 2rem;
   margin-bottom: 3rem;
   margin-top: 3rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  border: none;
 }
 
 .main-display .overlay-button .toggle {
@@ -221,6 +228,9 @@ body {
 @media only screen and (min-width: 600px) {
   html {
     font-size: 18px;
+  }
+  .active {
+    height: 100vh !important;
   }
   .stats-container {
     -webkit-box-orient: horizontal !important;
@@ -244,6 +254,9 @@ body {
   .stats-container .stats-bar:first-of-type {
     border-right: 1px solid rgba(0, 0, 0, 0.192);
   }
+  .stats-container .stats-bar.dark {
+    border-right: 1px solid rgba(252, 252, 252, 0.192) !important;
+  }
   .stats-container .stats-bar .stat {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -258,7 +271,10 @@ body {
   }
   .stats-container,
   .main-display {
-    padding: 2rem;
+    padding: 2rem 3rem;
+  }
+  .main-display {
+    padding: 5rem !important;
   }
   .main-display .overlay-button {
     position: absolute;

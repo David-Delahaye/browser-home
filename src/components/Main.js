@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-export default function Main({ quote, open, toggleButton }) {
-  console.log(quote);
+export default function Main({ quote, open, toggleButton, time }) {
   return (
     <div className="main-display">
       <div className="quote">{open ? "" : quote}</div>
-      <div className="greeting">Good Morning, Its currently</div>
+      <div className="greeting">Good {time.timeOfDay}, Its currently</div>
       <div className="time">
-        11:39 <span className="timezone">BST</span>
+        {time.timeString}
+        <span className="timezone">{time.timeZone}</span>
       </div>
 
       <div className="location">IN BLACKPOOL,UK</div>
