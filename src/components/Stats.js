@@ -13,13 +13,13 @@ export default function Stats({ time }) {
         </div>
         <div className="stat">
           <h2 className="stat-head">Day</h2>
-          <p className="stat-body">{time.date.getDay()}</p>
+          <p className="stat-body">{time.date.getDay() + 1}</p>
         </div>
       </div>
       <div className="stats-bar">
         <div className="stat">
           <h2 className="stat-head">Month</h2>
-          <p className="stat-body">{time.date.getMonth()}</p>
+          <p className="stat-body">{time.date.getMonth() + 1}</p>
         </div>
         <div className="stat">
           <h2 className="stat-head">Year</h2>

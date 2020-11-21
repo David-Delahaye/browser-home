@@ -5,21 +5,16 @@ import "./styles/global.css";
 import Stats from "./components/Stats";
 import Main from "./components/Main";
 
-function useTime(live) {
+function useTime() {
   const [time, setTime] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect((async) => {
-    let timer;
-    if (live === true) {
-      console.log("starting");
+    setTimeData();
+    setLoading(false);
+    setInterval(() => {
       setTimeData();
-      setLoading(false);
-      timer = setInterval(() => {
-        console.log("here");
-        setTimeData();
-      }, 10000);
-    }
+    }, 30000);
 
     async function setTimeData() {
       let date = new Date();
@@ -31,7 +26,7 @@ function useTime(live) {
       let zone = date.getTimezoneOffset();
       if (zone > 0) zone = "+" + zone;
       if (zone === 0) zone = "";
-      const timeZone = "gmt" + zone;
+      const timeZone = "GMT" + zone;
       let timeOfDay = "morning";
       if (hours < 6 || hours > 21) timeOfDay = "evening";
       if (hours > 12 && hours < 21) timeOfDay = "afternoon";
@@ -39,7 +34,6 @@ function useTime(live) {
       setTime(timePuppet);
     }
   }, []);
-  console.log(time);
   return [time, loading];
 }
 
@@ -47,13 +41,12 @@ export default function App() {
   const [open, setOpen] = useState(false);
   const [quote, setQuote] = useState("");
   const [opacity, setOpacity] = useState(0);
-  const [time, loading] = useTime(true);
+  const [time, loading] = useTime();
 
   const getQuotes = async () => {
     const res = await fetch("https://type.fit/api/quotes");
     const quotes = await res.json();
-    const num = 4;
-    //const num = Math.floor(Math.random() * 200);
+    const num = 3; //Math.floor(Math.random() * 200);
     setQuote(`${quotes[num].text} - ${quotes[num].author}`);
   };
   getQuotes();
@@ -71,6 +64,7 @@ export default function App() {
     return (
       <div className="site-wrapper">
         <img
+          alt={time.timeOfDay}
           src={
             time.timeOfDay === "evening"
               ? "https://images.unsplash.com/photo-1509773896068-7fd415d91e2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=100"
