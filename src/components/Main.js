@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 export default function Main({ quote, open, toggleButton, time }) {
   return (
